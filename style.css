@@ -342,7 +342,7 @@ main > section {
     text-decoration: none;
 }
 
-/* --- Contact Page (Redesigned) --- */
+/* --- Contact Page (Final Redesign) --- */
 #contact-hero {
     text-align: center;
     padding-bottom: 0;
@@ -371,19 +371,34 @@ main > section {
     text-decoration: none;
     color: var(--color-on-surface);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 .social-button i {
     font-size: 48px;
-    margin-bottom: 16px;
-    transition: color 0.3s ease;
+    color: var(--color-on-surface-variant);
+    transition: all 0.3s ease;
 }
 .social-button .social-label {
     font-size: 16px;
     font-weight: 500;
+    position: absolute;
+    bottom: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
 }
 .social-button:hover {
     transform: translateY(-8px);
     background-color: var(--color-outline);
+}
+.social-button:hover i {
+    color: var(--color-on-surface);
+    transform: translateY(-10px);
+}
+.social-button:hover .social-label {
+    opacity: 1;
+    transform: translateY(0);
 }
 .social-button.spotify:hover i { color: #1DB954; }
 .social-button.apple:hover i { color: #FFFFFF; }
