@@ -384,11 +384,11 @@ main:not(.contact-main) > section {
 
 .aurora-layer {
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     background: var(--aurora-color);
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(150px);
     mix-blend-mode: screen;
     opacity: 0;
     animation: drift 20s infinite linear alternate;
@@ -402,9 +402,9 @@ main:not(.contact-main) > section {
 }
 
 @keyframes drift {
-    0% { transform: translate(10%, 20%) scale(1); opacity: 0.2; }
-    50% { transform: translate(80%, 70%) scale(1.5); opacity: 0.3; }
-    100% { transform: translate(20%, 60%) scale(1.2); opacity: 0.25; }
+    0% { transform: translate(-20%, -20%) scale(1); opacity: 0.2; }
+    50% { transform: translate(80%, 70%) scale(1.5); opacity: 0.35; }
+    100% { transform: translate(10%, 50%) scale(1.2); opacity: 0.25; }
 }
 
 .click-splash {
