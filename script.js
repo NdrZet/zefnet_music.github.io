@@ -1,21 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM загружен. Скрипты инициализируются.");
 
-    // --- Load Header and Footer ---
+    // --- Load Components ---
     const loadComponent = (url, placeholderId) => {
         return fetch(url)
             .then(response => response.text())
             .then(data => {
-                document.getElementById(placeholderId).innerHTML = data;
+                const placeholder = document.getElementById(placeholderId);
+                if (placeholder) {
+                    placeholder.innerHTML = data;
+                }
             });
     };
 
-    Promise.all([
+    const componentsToLoad = [
         loadComponent('header.html', 'header-placeholder'),
         loadComponent('footer.html', 'footer-placeholder')
-    ]).then(() => {
-        console.log("Header and Footer loaded.");
+    ];
+
+    // Only load background if the placeholder exists
+    if (document.getElementById('background-placeholder')) {
+        componentsToLoad.push(loadComponent('background.html', 'background-placeholder'));
+    }
+
+    Promise.all(componentsToLoad).then(() => {
+        console.log("All components loaded.");
         initializeSmoothScroll();
+        initializeAuroraBackground();
     });
 
     function initializeSmoothScroll() {
@@ -97,15 +108,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Animated Grid Background Logic ---
-    const animatedGrid = document.getElementById('animated-grid-background');
-    if (animatedGrid) {
-        setInterval(() => {
-            animatedGrid.style.setProperty('--x1', `${Math.random() * 100}%`);
-            animatedGrid.style.setProperty('--y1', `${Math.random() * 100}%`);
-            animatedGrid.style.setProperty('--x2', `${Math.random() * 100}%`);
-            animatedGrid.style.setProperty('--y2', `${Math.random() * 100}%`);
-        }, 5000); // Change position every 5 seconds
+    // --- Aurora Background Logic ---
+    function initializeAuroraBackground() {
+        if (document.querySelector('.contact-page-body')) {
+            document.body.addEventListener('click', function(e) {
+                const splash = document.createElement('div');
+                splash.className = 'click-splash';
+                splash.style.left = `${e.clientX}px`;
+                splash.style.top = `${e.clientY}px`;
+                document.body.appendChild(splash);
+                setTimeout(() => {
+                    splash.remove();
+                }, 600);
+            });
+        }
     }
 });
 
