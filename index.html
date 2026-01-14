@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEFNET</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section id="hero">
+            <h1 class="md-typescale-display-large">Echoes of the Universe</h1>
+            <p class="md-typescale-body-large">The new album is now available on all platforms. Immerse yourself in a world of soundscapes and cosmic melodies.</p>
+            <button class="md-button md-button--filled">
+                <span class="material-icons">play_arrow</span>
+                <span class="md-typescale-label-large">Listen to the Album</span>
+            </button>
+        </section>
+
+        <section id="main-track" class="md-card">
+            <h2 class="md-typescale-headline-large">Featured Track: "Stardust"</h2>
+            <div class="audio-player">
+                <img src="https://placehold.co/100x100/1E1E1E/FFFFFF?text=Echoes" alt="Track Artwork">
+                <div class="player-controls">
+                    <button class="md-button--icon"><span class="material-icons">skip_previous</span></button>
+                    <button class="md-button--icon play-pause"><span class="material-icons">play_arrow</span></button>
+                    <button class="md-button--icon"><span class="material-icons">skip_next</span></button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span class="time-display">0:00 / 3:45</span>
+            </div>
+        </section>
+
+        <section id="video-preview">
+            <h2 class="md-typescale-headline-large">Latest Music Video</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="photo-preview">
+            <h2 class="md-typescale-headline-large">Gallery</h2>
+            <div class="photo-grid">
+                <img src="https://placehold.co/600x400/D0BCFF/121212?text=Live+Show" alt="Live Show">
+                <img src="https://placehold.co/600x400/FF00BF/121212?text=Photoshoot" alt="Photoshoot">
+                <img src="https://placehold.co/600x400/FFFFFF/121212?text=Backstage" alt="Backstage">
+            </div>
+        </section>
+
+        <section id="feed">
+            <h2 class="md-typescale-headline-large">News</h2>
+            <div class="feed-item md-typescale-body-large">
+                <p><strong>August 10:</strong> Started working on new material. Expect announcements soon!</p>
+            </div>
+            <div class="feed-item md-typescale-body-large">
+                <p><strong>August 5:</strong> Thanks to everyone who came to the show in St. Petersburg! It was unforgettable.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
