@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Aurora Background Logic ---
     function initializeAuroraBackground() {
-        if (document.querySelector('.contact-page-body')) {
+        if (document.querySelector('.aurora-background')) {
             document.body.addEventListener('click', function(e) {
                 const splash = document.createElement('div');
                 splash.className = 'click-splash';
