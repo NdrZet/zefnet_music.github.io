@@ -96,6 +96,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // --- Animated Grid Background Logic ---
+    const animatedGrid = document.getElementById('animated-grid-background');
+    if (animatedGrid) {
+        setInterval(() => {
+            animatedGrid.style.setProperty('--x1', `${Math.random() * 100}%`);
+            animatedGrid.style.setProperty('--y1', `${Math.random() * 100}%`);
+            animatedGrid.style.setProperty('--x2', `${Math.random() * 100}%`);
+            animatedGrid.style.setProperty('--y2', `${Math.random() * 100}%`);
+        }, 5000); // Change position every 5 seconds
+    }
 });
 
 // --- Preloader and Scroll Animation Logic ---
@@ -115,7 +126,7 @@ window.onload = () => {
             threshold: 0.1
         });
 
-        const elementsToAnimate = document.querySelectorAll('.md-card, .feed-item, .photo-grid img, .video-container, .album-card, .tour-item, .gallery-item');
+        const elementsToAnimate = document.querySelectorAll('.md-card, .feed-item, .photo-grid img, .video-container, .album-card, .tour-item, .gallery-item, .social-button, .professional-contacts');
         elementsToAnimate.forEach(el => {
             observer.observe(el);
         });
