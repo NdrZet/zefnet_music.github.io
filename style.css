@@ -92,9 +92,24 @@ nav {
     margin: 0 auto;
 }
 
-nav .logo {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-weight: 700;
     font-size: 24px;
+    color: var(--color-on-surface);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.logo:hover {
+    color: var(--color-primary);
+}
+.logo svg {
+    transition: transform 0.5s ease-in-out;
+}
+.logo:hover svg {
+    transform: rotate(180deg);
 }
 
 nav ul {
@@ -364,8 +379,13 @@ main:not(.contact-main) > section {
     padding: 80px 64px;
     background-color: transparent;
 }
+.contact-left-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .contact-left-panel img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
     border-radius: 24px;
@@ -494,7 +514,7 @@ main:not(.contact-main) > section {
 .social-button.apple:hover i { color: #FFFFFF; }
 .social-button.youtube:hover i { color: #FF0000; }
 .social-button.instagram:hover i { color: #E4405F; }
-.social-button.bandcamp:hover i { color: #629AA9; }
+.social-button.twitter:hover i { color: #1DA1F2; }
 .social-button.soundcloud:hover i { color: #FF5500; }
 
 .professional-contacts {
