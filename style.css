@@ -415,10 +415,10 @@ footer {
     align-items: center;
 }
 .contact-left-panel img {
-    width: 70%;
-    height: 95%;
+    width: 75%;
+    height: 98%;
     object-fit: cover;
-    border-radius: 24px;
+    border-radius: 30px;
 }
 .contact-right-panel {
     display: flex;
