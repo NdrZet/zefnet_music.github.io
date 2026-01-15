@@ -15,13 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const componentsToLoad = [
         loadComponent('header.html', 'header-placeholder'),
-        loadComponent('footer.html', 'footer-placeholder')
+        loadComponent('footer.html', 'footer-placeholder'),
+        loadComponent('background.html', 'background-placeholder')
     ];
-
-    // Only load background if the placeholder exists
-    if (document.getElementById('background-placeholder')) {
-        componentsToLoad.push(loadComponent('background.html', 'background-placeholder'));
-    }
 
     Promise.all(componentsToLoad).then(() => {
         console.log("All components loaded.");
