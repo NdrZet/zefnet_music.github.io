@@ -128,16 +128,20 @@ nav ul a:hover {
 }
 
 main {
-    padding-top: var(--header-height);
     background-color: transparent;
     position: relative;
     z-index: 1;
 }
 
-main:not(.contact-main) > section {
+main > section {
     padding: 80px 48px;
+    padding-top: calc(80px + var(--header-height));
     max-width: 1400px;
     margin: 0 auto;
+}
+
+main > section:first-child {
+    padding-top: 80px;
 }
 
 /* --- Footer --- */
@@ -181,7 +185,7 @@ footer {
     min-height: 70vh;
     position: relative;
     overflow: hidden;
-    padding-top: 0; /* Remove padding-top because of body padding */
+    padding-top: calc(80px + var(--header-height));
 }
 #hero::before {
     content: '';
@@ -402,7 +406,7 @@ footer {
 .contact-split-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: calc(100vh - var(--header-height));
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
 }
@@ -410,6 +414,7 @@ footer {
     position: relative;
     z-index: 1;
     background-color: transparent;
+    padding-top: var(--header-height);
 }
 .contact-left-panel {
     display: flex;
@@ -417,8 +422,8 @@ footer {
     align-items: center;
 }
 .contact-left-panel img {
-    width: 80%;
-    height: 100%;
+    width: 70%;
+    height: 95%;
     object-fit: cover;
     border-radius: 24px;
 }
@@ -439,6 +444,7 @@ footer {
 .contact-content-wrapper {
     position: relative;
     z-index: 1;
+    padding-top: var(--header-height);
 }
 
 .aurora-layer {
