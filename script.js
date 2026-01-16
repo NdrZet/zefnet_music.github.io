@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("All components loaded.");
         initializeSmoothScroll();
         initializeAuroraBackground();
+        initializeAlbumPopup();
     });
 
     function initializeSmoothScroll() {
@@ -100,6 +101,49 @@ document.addEventListener('DOMContentLoaded', function() {
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 lightbox.style.display = 'none';
+            }
+        });
+    }
+
+    // --- Album Popup Logic ---
+    function initializeAlbumPopup() {
+        const albumPopup = document.getElementById('album-popup');
+        if (!albumPopup) return;
+
+        const albumCards = document.querySelectorAll('.album-card');
+        const closePopupBtn = albumPopup.querySelector('.close-popup');
+
+        albumCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.dataset.title;
+                const year = card.dataset.year;
+                const cover = card.dataset.cover;
+                const tracks = JSON.parse(card.dataset.tracks);
+
+                albumPopup.querySelector('#popup-title').textContent = title;
+                albumPopup.querySelector('#popup-year').textContent = year;
+                albumPopup.querySelector('#popup-cover').src = cover;
+
+                const tracklist = albumPopup.querySelector('#popup-tracks');
+                tracklist.innerHTML = '';
+                tracks.forEach((track, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span class="track-number">${index + 1}</span> <span class="track-name">${track}</span>`;
+                    tracklist.appendChild(li);
+                });
+
+                albumPopup.classList.add('visible');
+            });
+        });
+
+        const closePopup = () => {
+            albumPopup.classList.remove('visible');
+        };
+
+        closePopupBtn.addEventListener('click', closePopup);
+        albumPopup.addEventListener('click', (e) => {
+            if (e.target === albumPopup) {
+                closePopup();
             }
         });
     }
