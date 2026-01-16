@@ -186,25 +186,7 @@ footer {
     background-color: transparent;
     border: none;
 }
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    background-image:
-        radial-gradient(ellipse at 30% 40%, var(--color-primary), transparent 40%),
-        radial-gradient(ellipse at 70% 60%, var(--color-accent), transparent 40%);
-    opacity: 0.2;
-    filter: blur(100px);
-    z-index: -1;
-    animation: subtle-rotate 20s infinite linear;
-}
-@keyframes subtle-rotate {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
+
 #hero h1 { margin-bottom: 16px; }
 #hero p { max-width: 600px; }
 
