@@ -221,37 +221,80 @@ footer {
 }
 .album-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 32px;
     margin-top: 32px;
 }
 .album-card {
-    background-color: var(--color-surface);
+    position: relative;
     border-radius: 16px;
     overflow: hidden;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: transform 0.3s;
     cursor: pointer;
+    aspect-ratio: 3 / 4;
 }
 .album-card:hover {
-    background-color: #2a2a2a;
     transform: translateY(-8px);
 }
 .album-card img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
 }
-.album-card h3, .album-card p {
+.album-card:hover img {
+    transform: scale(1.05);
+}
+.album-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    transition: background 0.3s;
+}
+.album-card:hover::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%);
+}
+.album-info {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 2;
+    color: var(--color-on-surface);
+}
+.album-info h3 {
     margin: 0;
-    padding: 0 16px;
 }
-.album-card h3 {
-    margin-top: 16px;
-}
-.album-card p {
-    margin-bottom: 16px;
+.album-info p {
+    margin: 4px 0 0;
     color: var(--color-on-surface-variant);
 }
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 64px;
+    height: 64px;
+    background-color: rgba(255, 0, 191, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.album-card:hover .play-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.play-icon .material-icons {
+    font-size: 48px;
+    color: white;
+}
+
 
 /* --- Tour Page --- */
 #tour-hero {
