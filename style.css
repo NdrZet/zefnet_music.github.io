@@ -359,6 +359,10 @@ footer {
 #popup-year {
     margin-top: 8px;
 }
+#popup-summary {
+    margin-top: 16px;
+    color: var(--color-on-surface-variant);
+}
 .popup-tracklist ol {
     list-style: none;
     padding: 0;

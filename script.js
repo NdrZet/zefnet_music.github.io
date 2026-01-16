@@ -116,12 +116,14 @@ document.addEventListener('DOMContentLoaded', function() {
         albumCards.forEach(card => {
             card.addEventListener('click', () => {
                 const title = card.dataset.title;
-                const year = card.dataset.year;
+                const year = card.dataset.releaseDate; // Changed from year to releaseDate
+                const summary = card.dataset.summary;
                 const cover = card.dataset.cover;
                 const tracks = JSON.parse(card.dataset.tracks);
 
                 albumPopup.querySelector('#popup-title').textContent = title;
                 albumPopup.querySelector('#popup-year').textContent = year;
+                albumPopup.querySelector('#popup-summary').textContent = summary;
                 albumPopup.querySelector('#popup-cover').src = cover;
 
                 const tracklist = albumPopup.querySelector('#popup-tracks');
